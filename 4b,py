@@ -1,0 +1,14 @@
+import hashlib
+
+KEY = 'iwrupvqb'
+
+i = 3000000
+while True:
+  data = (KEY + str(i)).encode('utf-8')
+  m = hashlib.md5(data).hexdigest()
+  if m.startswith('000000'):
+    print(m, i)
+    break
+  elif i % 10000 == 0:
+    print('...%s' % i)
+  i += 1
